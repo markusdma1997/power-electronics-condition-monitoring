@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify72758d4963124-staging-153647-authRole",
+      "UnauthRoleArn": "arn:aws:iam::271228551235:role/amplify-amplify72758d4963124-staging-153647-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::271228551235:role/amplify-amplify72758d4963124-staging-153647-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amplify72758d4963124-staging-153647-deployment",
+      "UnauthRoleName": "amplify-amplify72758d4963124-staging-153647-unauthRole",
+      "StackName": "amplify-amplify72758d4963124-staging-153647",
+      "StackId": "arn:aws:cloudformation:eu-west-1:271228551235:stack/amplify-amplify72758d4963124-staging-153647/ecf1dac0-175b-11ee-845e-0af2a4e9babf",
+      "AmplifyAppId": "dum051foqv07"
+    },
+    "categories": {
+      "auth": {
+        "powerelectronicsconda93a5352": {}
+      }
+    }
+  }
+}
