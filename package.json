@@ -5,6 +5,8 @@
   "dependencies": {
     "@aws-amplify/pubsub": "^5.3.3",
     "@aws-amplify/ui-react": "^5.0.3",
+    "@aws-sdk/client-timestream-query": "^3.363.0",
+    "@aws-sdk/client-timestream-write": "^3.363.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
