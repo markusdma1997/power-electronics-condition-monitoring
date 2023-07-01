@@ -1,4 +1,4 @@
-import {Card, Heading, Text} from "@aws-amplify/ui-react";
+import {Card, Heading} from "@aws-amplify/ui-react";
 import * as React from "react";
 
 export default function GrafanaDashboardPanel() {

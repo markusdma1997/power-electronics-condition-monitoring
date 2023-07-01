@@ -6,19 +6,26 @@ import awsconfig from './aws-exports';
 
 import { TimestreamQueryClient, QueryCommand } from "@aws-sdk/client-timestream-query";
 import { TimestreamWriteClient, ListDatabasesCommand, ListTablesCommand } from "@aws-sdk/client-timestream-write";
+/*
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 
-const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
+ */
+
+const { fromNodeProviderChain, fromCognitoIdentity } = require("@aws-sdk/credential-providers");
+/*
 const credentialProvider = defaultProvider({
     roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity()
 });
 
 const credentials = fromNodeProviderChain();
+ */
 
 const writeClient = new TimestreamWriteClient({
     region: "eu-west-1",
-    credentialDefaultProvider: credentialProvider
+    credentials: fromCognitoIdentity({
+        identityId: awsconfig.aws_cognito_identity_pool_id
+    })
 });
 
 export default function AWSTimestreamManagementPanel() {
