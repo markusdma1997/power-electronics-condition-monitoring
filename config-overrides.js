@@ -2,6 +2,7 @@ module.exports = function override(config, env) {
     console.log("React app rewired works!")
     config.resolve.fallback = {
         "fs": false,
+        "child_process": false,
         "crypto": require.resolve("crypto-browserify"),
         "path": require.resolve("path-browserify"),
         "os": require.resolve("os-browserify/browser"),
