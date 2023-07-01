@@ -18,8 +18,7 @@ const credentialProvider = defaultProvider({
 const credentials = fromNodeProviderChain();
 
 const writeClient = new TimestreamWriteClient({
-    region: "eu-west-1",
-    credentials: credentials
+    credentials
 });
 
 export default function AWSTimestreamManagementPanel() {
