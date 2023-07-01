@@ -24,7 +24,8 @@ const credentials = fromNodeProviderChain();
 const writeClient = new TimestreamWriteClient({
     region: "eu-west-1",
     credentials: fromCognitoIdentity({
-        identityId: awsconfig.aws_cognito_identity_pool_id
+        identityId: awsconfig.aws_cognito_identity_pool_id,
+
     })
 });
 
@@ -62,7 +63,8 @@ export default function AWSTimestreamManagementPanel() {
 
     async function refreshTimestreamDatabaseList() {
         const listDatabaseParams = {
-            MaxResults: 50
+            MaxResults: 50,
+            Region: 'eu-west-1'
         };
         const listDatabasesCommand = new ListDatabasesCommand(listDatabaseParams);
         try {
