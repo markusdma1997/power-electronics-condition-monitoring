@@ -37,11 +37,14 @@ export default function AWSTimestreamManagementPanel() {
     }
 
     async function refreshTimestreamDatabaseList() {
+        console.log('API call')
         API.get(apiName, path, myInit)
             .then((response) => {
+                console.log('API call response')
                 console.log(response);
             })
             .catch(((error) => {
+                console.log('API call error')
                 console.log(error.response);
             }))
     }
