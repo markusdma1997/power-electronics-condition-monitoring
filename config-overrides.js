@@ -7,7 +7,8 @@ module.exports = function override(config, env) {
         "os": require.resolve("os-browserify/browser"),
         "http": require.resolve("stream-http"),
         "stream": require.resolve("stream-browserify"),
-        "util": require.resolve("util/")
+        "util": require.resolve("util/"),
+        "https": require.resolve("https-browserify")
     };
     return config;
 };

@@ -2,25 +2,18 @@ import * as React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Amplify, Auth} from 'aws-amplify';
-import {AWSIoTProvider} from '@aws-amplify/pubsub';
 import awsconfig from './aws-exports';
 import "@aws-amplify/ui-react/styles.css";
 import {
-  Card, Heading, Image, View, withAuthenticator, Button, Flex
+  Card, Heading, Image, View, withAuthenticator, Button, Flex, TabItem, Tabs
 } from "@aws-amplify/ui-react";
 
 import GrafanaDashboardPanel from "./grafana";
 import AWSTimestreamManagementPanel from "./timestream";
 import MQTTSubscriptionTopicList from "./topics";
+import AWSLambdaFunctions from "./lambda";
 
 Amplify.configure(awsconfig);
-Amplify.addPluggable(
-    new AWSIoTProvider({
-      aws_pubsub_region: 'eu-west-1',
-      aws_pubsub_endpoint:
-          'wss://arvb6j5c7prz6-ats.iot.eu-west-1.amazonaws.com/mqtt'
-    })
-);
 
 async function signUp() {
   try {
@@ -58,23 +51,33 @@ const App = function ({ signOut, user }) {
         <View className="App">
           <Card>
             <Image alt="logo" src={logo} height="10%" width="10%"/>
-            <Heading level={1}>Power Electronics IoT2050 Dashboard</Heading>
+            <Heading level={1}>Condition Monitoring on Power Electronics Converter Dashboard</Heading>
           </Card>
-          <GrafanaDashboardPanel/>
-          <AWSTimestreamManagementPanel/>
-          <MQTTSubscriptionTopicList/>
-          <Flex>
-            <Button
-                onClick={getCognitoIdentityId}
-                alignSelf="flex-end">
-              Retrieve AWS cognito identity ID
-            </Button>
-            <Button
-                onClick={signOut}
-                alignSelf="flex-end">
-              Sign out
-            </Button>
-          </Flex>
+          <Tabs
+              justifyContent="flex-start"
+              alignSelf="flex-start"
+              spacing="equal"
+              paddingBottom="5rem">
+            <TabItem title="Grafana Panel">
+                <GrafanaDashboardPanel/>
+            </TabItem>
+            <TabItem title="AWS Timestream Databases">
+                <AWSTimestreamManagementPanel/>
+            </TabItem>
+            <TabItem title="MQTT Dashboard">
+                <MQTTSubscriptionTopicList/>
+            </TabItem>
+            <TabItem title="AWS Lambda Functions">
+              <AWSLambdaFunctions/>
+            </TabItem>
+          </Tabs>
+          <Button
+              onClick={signOut}
+              variation="destructive"
+              height="2rem"
+              alignSelf="flex-end">
+            Sign Out
+          </Button>
         </View>
       </headers>
   );
