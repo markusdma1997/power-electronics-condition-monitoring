@@ -1,8 +1,8 @@
 import {
     Button,
     Card,
-    Flex,
-    Heading,
+    Flex, Grid,
+    Heading, SelectField, TabItem, Tabs,
     Text, TextAreaField
 } from "@aws-amplify/ui-react";
 import * as React from "react";
@@ -12,6 +12,10 @@ export default function AWSLambdaFunctions() {
         statusCode: '',
         body: ''
     });
+
+    const [sensorDataFileList, setSensorDataFileList] = React.useState([]);
+
+    const [sensorDataFileForAnalysis, setSensorDataFileForAnalysis] = React.useState('');
 
     function checkSensorDataCSVFileForAnomalies(awsS3FileURI) {
         let headers = new Headers();
@@ -40,37 +44,57 @@ export default function AWSLambdaFunctions() {
     return (
         <Card>
             <Heading level={4}>AWS Lambda Functions</Heading>
-            <Text>-</Text>
-            <Heading level={6}>Check sensor data file for anomalies</Heading>
-            <Flex
-                alignItems="flex-start"
-                justifyContent="center">
-                <Card>
-                    <TextAreaField
-                        variation="quiet"
-                        descriptiveText="Provide the AWS S3 URI for the sensor data file"
-                        textAlign="left"
-                        paddingBottom="1rem"
-                        ref={awsS3URISensorDataFile}
-                    />
-                    <Button
-                        variation="primary"
-                        type="submit"
-                        height="2rem"
-                        width="20rem"
-                        alignSelf="flex-end"
-                        onClick={() => checkSensorDataCSVFileForAnomalies(`${awsS3URISensorDataFile.current.value}`)}>
-                        Check sensor data anomalies
-                    </Button>
-                </Card>
-                <Card width="24rem">
-                    <Heading level={6}>
-                        Result from AWS Lambda function
-                    </Heading>
-                    <Text>Response status code: {apiResponse.statusCode}</Text>
-                    <Text>Response body: {apiResponse.body}</Text>
-                </Card>
-            </Flex>
+            <Tabs
+                justifyContent="flex-start"
+                alignSelf="flex-start"
+                spacing="equal">
+                <TabItem title="Check sensor data file for anomalies">
+                    <Flex
+                        alignItems="flex-start"
+                        justifyContent="center">
+                        <Card>
+                            <TextAreaField
+                                variation="quiet"
+                                descriptiveText="Provide the AWS S3 URI for the sensor data file"
+                                textAlign="left"
+                                paddingBottom="1rem"
+                                ref={awsS3URISensorDataFile}
+                            />
+                            <Button
+                                variation="primary"
+                                type="submit"
+                                height="2rem"
+                                width="20rem"
+                                alignSelf="flex-end"
+                                onClick={() => checkSensorDataCSVFileForAnomalies(`${awsS3URISensorDataFile.current.value}`)}>
+                                Check sensor data anomalies
+                            </Button>
+                        </Card>
+                        <Card width="24rem">
+                            <Heading level={6}>
+                                Result from AWS Lambda function
+                            </Heading>
+                            <Text>Response status code: {apiResponse.statusCode}</Text>
+                            <Text>Response body: {apiResponse.body}</Text>
+                        </Card>
+                    </Flex>
+                </TabItem>
+                <TabItem title="Zoom in on 10 seconds sensor data">
+                    <Flex
+                        alignItems="center"
+                        justifyContent="center">
+                        <SelectField
+                            label="Choose a sensor data file for analysis"
+                            descriptiveText="Each file contains sensor data records for 10 seconds"
+                            options={sensorDataFileList}
+                            onChange={(filename) => setSensorDataFileForAnalysis(filename.target.value)}>
+                        </SelectField>
+                        <Card>
+
+                        </Card>
+                    </Flex>
+                </TabItem>
+            </Tabs>
         </Card>
     )
 }

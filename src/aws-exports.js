@@ -23,7 +23,9 @@ const awsmobile = {
     },
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
-    ]
+    ],
+    "aws_user_files_s3_bucket": "simaticiot2050153647-staging",
+    "aws_user_files_s3_bucket_region": "eu-west-1"
 };
 
 

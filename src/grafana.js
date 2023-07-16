@@ -12,6 +12,16 @@ export default function GrafanaDashboardPanel() {
                 <TabItem title="Voltage & Power">
                     <Grid templateColumns="1fr 1fr 1fr">
                         <Card>
+                            <Heading level={6}>Condition Monitoring - Power (test with docker on EC2")</Heading>
+                            <iframe
+                                title="Power Test with Grafana from Docker on EC2"
+                                src="http://ec2-34-240-67-203.eu-west-1.compute.amazonaws.com:3000/d-solo/cd868894-3feb-47c4-ad9f-5d4665bdd1ab/condition-monitoring?refresh=5s&from=now-5m&to=now&&orgId=2&theme=dark&panelId=1"
+                                width="450"
+                                height="200"
+                                frameBorder="0">
+                            </iframe>
+                        </Card>
+                        <Card>
                             <Heading level={6}>Condition Monitoring - MV Voltage</Heading>
                             <iframe
                                 title="MV Voltage"
