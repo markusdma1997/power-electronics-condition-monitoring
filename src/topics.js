@@ -1,11 +1,8 @@
-import {useEffect, useState} from 'react';
 import {
     Button,
     Card,
-    Collection,
     Flex,
     Heading,
-    ScrollView,
     TextField,
     Text, TextAreaField
 } from "@aws-amplify/ui-react";

@@ -30,8 +30,8 @@ const queryClient = new TimestreamQueryClient({
     region: "eu-west-1",
     endpoint: "https://query-cell1.timestream.eu-west-1.amazonaws.com",
     credentials: {
-        accessKeyId: 'AKIAT6JT3IBBZ5ZM74Z7',
-        secretAccessKey: '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'
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
 
