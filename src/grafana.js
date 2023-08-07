@@ -76,8 +76,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Transformer LV Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=4"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -86,8 +86,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Transformer MV Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=5"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -96,8 +96,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Transformer Core Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=6"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -106,8 +106,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Transformer Temperature TBD"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=7"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -120,8 +120,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Capacitor Inside Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=8"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -130,8 +130,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Capacitor Outside Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=9"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -144,8 +144,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Cooling Plate Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=10"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -154,8 +154,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Water Temperature"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=11"
-                                width="675"
-                                height="300"
+                                width="100%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -167,8 +167,8 @@ export default function GrafanaDashboardPanel() {
                         <iframe
                             title="Auxiliary Data"
                             src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?orgId=2&refresh=5s&from=now-5m&to=now&theme=dark&panelId=12"
-                            width="675"
-                            height="300"
+                            width="100%"
+                            height="300rem"
                             frameBorder="0">
                         </iframe>
                     </Card>
