@@ -5,13 +5,14 @@ import {Amplify, Auth} from 'aws-amplify';
 import awsconfig from './aws-exports';
 import "@aws-amplify/ui-react/styles.css";
 import {
-  Card, Heading, Image, View, withAuthenticator, Button, Flex, TabItem, Tabs
+  Card, Heading, Image, View, withAuthenticator, Button, Flex, TabItem, Tabs, ButtonGroup, Text
 } from "@aws-amplify/ui-react";
 
 import GrafanaDashboardPanel from "./grafana";
 import AWSTimestreamManagementPanel from "./timestream";
 import MQTTSubscriptionTopicList from "./topics";
 import AWSLambdaFunctions from "./lambda";
+import {useEffect, useState} from "react";
 
 Amplify.configure(awsconfig);
 
@@ -45,6 +46,22 @@ async function getCognitoIdentityId() {
 }
 
 const App = function ({ signOut, user }) {
+
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    async function getUserInfo() {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        setUsername(user.username);
+      } catch (error) {
+        console.error('Error getting current Auth user information, ', error);
+      }
+    }
+
+    getUserInfo().then(r => {});
+  }, []);
+
   return (
       <headers>
         <frame-options policy="SAMEORIGIN"/>
@@ -53,6 +70,21 @@ const App = function ({ signOut, user }) {
             <Image alt="logo" src={logo} height="10%" width="10%"/>
             <Heading level={1}>Condition Monitoring on Power Electronics Converter Dashboard</Heading>
           </Card>
+          <ButtonGroup
+              variation="destructive"
+              justifyContent="right"
+              alignSelf="flex-end">
+            <Text>
+              Welcome, {username}
+            </Text>
+            <Button
+                onClick={signOut}
+                height="2rem"
+                display="flex"
+                justifyContent="flex-end">
+              Sign Out
+            </Button>
+          </ButtonGroup>
           <Tabs
               justifyContent="flex-start"
               alignSelf="flex-start"
@@ -71,13 +103,6 @@ const App = function ({ signOut, user }) {
               <AWSLambdaFunctions/>
             </TabItem>
           </Tabs>
-          <Button
-              onClick={signOut}
-              variation="destructive"
-              height="2rem"
-              alignSelf="flex-end">
-            Sign Out
-          </Button>
         </View>
       </headers>
   );
