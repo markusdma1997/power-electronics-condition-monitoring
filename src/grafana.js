@@ -8,11 +8,14 @@ export default function GrafanaDashboardPanel() {
         height: window.innerHeight,
     });
 
+    let gridTemplateColumns = windowSize.width > 1280 ? "1fr 1fr 1fr" : "1fr 1fr";
+
     const updateWindowSize = () => {
         setWindowSize({
             width: window.innerWidth,
             height: window.innerHeight,
         });
+        gridTemplateColumns = windowSize.width > 1280 ? "1fr 1fr 1fr" : "1fr 1fr";
     };
 
     useEffect(() => {
@@ -33,14 +36,14 @@ export default function GrafanaDashboardPanel() {
                 alignSelf="flex-start"
                 spacing="equal">
                 <TabItem title="Voltage & Power">
-                    <Grid templateColumns="1fr 1fr 1fr">
+                    <Grid templateColumns={gridTemplateColumns}>
                         <Card>
                             <Heading level={6}>Condition Monitoring - MV Voltage</Heading>
                             <iframe
                                 title="MV Voltage"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=1"
-                                width="450rem"
-                                height="200rem"
+                                width="720rem"
+                                height="320rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -49,8 +52,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="LV Voltage"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=2"
-                                width="450rem"
-                                height="200rem"
+                                width="720rem"
+                                height="320rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -59,8 +62,8 @@ export default function GrafanaDashboardPanel() {
                             <iframe
                                 title="Power"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=3"
-                                width="450rem"
-                                height="200rem"
+                                width="720rem"
+                                height="320rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
