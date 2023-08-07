@@ -1,7 +1,30 @@
-import {Card, Grid, Heading, TabItem, Tabs} from "@aws-amplify/ui-react";
+import {Button, Card, Grid, Heading, TabItem, Tabs} from "@aws-amplify/ui-react";
 import * as React from "react";
+import {useEffect, useState} from "react";
 
 export default function GrafanaDashboardPanel() {
+    const [windowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    const updateWindowSize = () => {
+        setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+    };
+
+    useEffect(() => {
+        // Add a resize event listener
+        window.addEventListener('resize', updateWindowSize);
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', updateWindowSize);
+        };
+    }, []);
+
     return (
         <Card>
             <Heading level={4}>Grafana Panel</Heading>
@@ -148,6 +171,15 @@ export default function GrafanaDashboardPanel() {
                     </Card>
                 </TabItem>
             </Tabs>
+            <Button
+                variation="primary"
+                type="submit"
+                height="2rem"
+                alignSelf="flex-end"
+                // ref={newSubscriptionTopicButtonRef}
+                onClick={() => alert("Current window width is " + windowSize.width + ", height is " + windowSize.height)}>
+                Get current window size
+            </Button>
         </Card>
     )
 }
