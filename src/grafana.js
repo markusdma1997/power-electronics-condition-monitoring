@@ -43,7 +43,7 @@ export default function GrafanaDashboardPanel() {
                                 title="MV Voltage"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=1"
                                 width="100%"
-                                height="200%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -53,7 +53,7 @@ export default function GrafanaDashboardPanel() {
                                 title="LV Voltage"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=2"
                                 width="100%"
-                                height="200%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
@@ -63,7 +63,7 @@ export default function GrafanaDashboardPanel() {
                                 title="Power"
                                 src="https://ec2-grafana.de:3000/d-solo/fac9197a-c4fc-493c-9707-a546d84cfeb4/condition-monitoring?refresh=5s&from=now-5m&to=now&orgId=2&theme=dark&panelId=3"
                                 width="100%"
-                                height="200%"
+                                height="300rem"
                                 frameBorder="0">
                             </iframe>
                         </Card>
